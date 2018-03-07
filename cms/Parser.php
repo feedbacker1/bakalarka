@@ -26,18 +26,15 @@ class Parser
     public function __construct($html = false, $pageName = false, $parsedAnchors = false, $filename = false)
     {
 
-        include 'db.php';
-
-        $servername = $config['server'];
-        $username = $config['user'];
-        $password = $config['pass'];
-        $dbname = $config['table'];
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "cms";
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($this->conn->connect_error) {
-            //die("Connection failed: " . $this->conn->connect_error);
-            die();
+            die("Connection failed: " . $this->conn->connect_error);
         }
 
         if ($html) {
@@ -209,32 +206,30 @@ class Parser
 
 
 
-        //Dava tie iste nazvy suborom
+        //TODO ak sa dostanem k prvemu A tagu na indexe - tak len ho zapíš a až potom možno zparsuj
+
+        //parsed anchors je pole kde kluc je povodny odkaz a value nový (funkčný po zparsovaní)
+
         $href = $node->getTag()->getAttributes()['href']['value'];
 
         if ($handleAnchors && $node->getTag()->name() == "a" && isset($href) && $href != "#") {
 
             if (!key_exists($href, $this->parsedAnchors)) {
 
-                if ($this->pageName == "index.html") {
-                    $newPageName = strpos($href,".html") === false ? $href.".html" : $href;
-                    $this->parsedAnchors['index.html'] = 'index.html';
-                } else {
-                    $newPageName = strpos($href,".html") === false ? $href.".html" : $href;
-                    $this->parsedAnchors[$href] = $newPageName;
-                }
+                $this->parsedAnchors[$href] = $href;
 
-                var_dump( $this->parsedAnchors );
+                //if (strpos($href, "//") === false) {
 
-                if (strpos($href, "//") === false) {
+                //$parser = new Parser($this->url . "/" . $href, $newPageName, $this->parsedAnchors, $href);
 
-                    $parser = new Parser($this->url . "/" . $href, $newPageName, $this->parsedAnchors, $href);
+                //toto je rekurzia
 
-                    $parser->downloadContent();
-                    $parser->toDB();
-                }
+                //$parser->downloadContent();
+                //$parser->toDB();
 
-                $attrs['href'] = $newPageName;
+                //}
+
+                $attrs['href'] = $href;
 
             } else {
 

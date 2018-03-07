@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cefd7aa0-61b7-4314-88fb-6c06316e010f" name="Default" comment="a">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cms/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/Parser.php" afterPath="$PROJECT_DIR$/cms/Parser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
@@ -22,22 +21,22 @@
       <file leaf-file-name="Parser.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cms/Parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+            <state relative-caret-position="543">
+              <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
               <folding>
-                <marker date="1520461424533" expanded="true" signature="17007:17059" ph="INSERT INTO pages... " />
-                <marker date="1520461424533" expanded="true" signature="17573:17686" ph="INSERT INTO elements... " />
-                <marker date="1520461424533" expanded="true" signature="18022:18099" ph="SELECT closi... pages" />
-                <marker date="1520461424533" expanded="true" signature="18139:18218" ph="SELECT closi... pages" />
-                <marker date="1520461424533" expanded="true" signature="18496:18545" ph="SELECT * FRO... elements" />
-                <marker date="1520461424533" expanded="true" signature="18585:18695" ph="SELECT * FRO... elements" />
-                <marker date="1520461424533" expanded="true" signature="18625:18651" ph="SELECT id FR... pages" />
-                <marker date="1520461424533" expanded="true" signature="18625:18694" ph="SELECT id FR... pages" />
-                <marker date="1520461424533" expanded="true" signature="19544:19658" ph="SELECT closi... pages" />
-                <marker date="1520461424533" expanded="true" signature="19964:20003" ph="SELECT * FRO... elements" />
-                <marker date="1520461424533" expanded="true" signature="19964:20011" ph="SELECT * FRO... elements" />
-                <marker date="1520461424533" expanded="true" signature="20855:20909" ph="SELECT * FRO... elements" />
-                <marker date="1520461424533" expanded="true" signature="20855:20934" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="16693:16745" ph="INSERT INTO pages... " />
+                <marker date="1520464387840" expanded="true" signature="17259:17372" ph="INSERT INTO elements... " />
+                <marker date="1520464387840" expanded="true" signature="17708:17785" ph="SELECT closi... pages" />
+                <marker date="1520464387840" expanded="true" signature="17825:17904" ph="SELECT closi... pages" />
+                <marker date="1520464387840" expanded="true" signature="18182:18231" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="18271:18381" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="18311:18337" ph="SELECT id FR... pages" />
+                <marker date="1520464387840" expanded="true" signature="18311:18380" ph="SELECT id FR... pages" />
+                <marker date="1520464387840" expanded="true" signature="19230:19344" ph="SELECT closi... pages" />
+                <marker date="1520464387840" expanded="true" signature="19650:19689" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="19650:19697" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="20541:20595" ph="SELECT * FRO... elements" />
+                <marker date="1520464387840" expanded="true" signature="20541:20620" ph="SELECT * FRO... elements" />
               </folding>
             </state>
           </provider>
@@ -47,16 +46,16 @@
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="657">
-              <caret line="141" column="68" lean-forward="false" selection-start-line="141" selection-start-column="68" selection-end-line="141" selection-end-column="68" />
+              <caret line="141" column="98" lean-forward="false" selection-start-line="141" selection-start-column="98" selection-end-line="141" selection-end-column="98" />
               <folding>
-                <marker date="1520462557431" expanded="true" signature="393:815" ph="CREATE TABLE... blocks" />
-                <marker date="1520462557431" expanded="true" signature="867:1669" ph="CREATE TABLE... elements" />
-                <marker date="1520462557431" expanded="true" signature="1721:2046" ph="CREATE TABLE... pages" />
-                <marker date="1520462557431" expanded="true" signature="2627:3031" ph="..." />
-                <marker date="1520462557431" expanded="true" signature="2634:2951" ph="..." />
-                <marker date="1520462557431" expanded="true" signature="2958:3031" ph="..." />
-                <marker date="1520462557431" expanded="true" signature="2967:3031" ph="..." />
-                <marker date="1520462557431" expanded="true" signature="2978:3031" ph="{...}" />
+                <marker date="1520464107802" expanded="true" signature="393:815" ph="CREATE TABLE... blocks" />
+                <marker date="1520464107802" expanded="true" signature="867:1669" ph="CREATE TABLE... elements" />
+                <marker date="1520464107802" expanded="true" signature="1721:2046" ph="CREATE TABLE... pages" />
+                <marker date="1520464107802" expanded="true" signature="2627:3031" ph="..." />
+                <marker date="1520464107802" expanded="true" signature="2634:2951" ph="..." />
+                <marker date="1520464107802" expanded="true" signature="2958:3031" ph="..." />
+                <marker date="1520464107802" expanded="true" signature="2967:3031" ph="..." />
+                <marker date="1520464107802" expanded="true" signature="2978:3031" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -360,7 +359,7 @@
       <workItem from="1516534902310" duration="2111000" />
       <workItem from="1516608893686" duration="35000" />
       <workItem from="1520448035322" duration="99000" />
-      <workItem from="1520448656167" duration="8723000" />
+      <workItem from="1520448656167" duration="10461000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1506878796746</created>
@@ -481,11 +480,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510169935858</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="a">
+      <created>1520462731049</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1520462731049</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196307000" />
+    <option name="totallyTimeSpent" value="198045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -497,7 +503,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -747,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cms/lib/src/PHPHtmlParser/Options.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -787,41 +785,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
-          <caret line="141" column="68" lean-forward="false" selection-start-line="141" selection-start-column="68" selection-end-line="141" selection-end-column="68" />
+          <caret line="141" column="98" lean-forward="false" selection-start-line="141" selection-start-column="98" selection-end-line="141" selection-end-column="98" />
           <folding>
-            <marker date="1520462557431" expanded="true" signature="393:815" ph="CREATE TABLE... blocks" />
-            <marker date="1520462557431" expanded="true" signature="867:1669" ph="CREATE TABLE... elements" />
-            <marker date="1520462557431" expanded="true" signature="1721:2046" ph="CREATE TABLE... pages" />
-            <marker date="1520462557431" expanded="true" signature="2627:3031" ph="..." />
-            <marker date="1520462557431" expanded="true" signature="2634:2951" ph="..." />
-            <marker date="1520462557431" expanded="true" signature="2958:3031" ph="..." />
-            <marker date="1520462557431" expanded="true" signature="2967:3031" ph="..." />
-            <marker date="1520462557431" expanded="true" signature="2978:3031" ph="{...}" />
+            <marker date="1520464107802" expanded="true" signature="393:815" ph="CREATE TABLE... blocks" />
+            <marker date="1520464107802" expanded="true" signature="867:1669" ph="CREATE TABLE... elements" />
+            <marker date="1520464107802" expanded="true" signature="1721:2046" ph="CREATE TABLE... pages" />
+            <marker date="1520464107802" expanded="true" signature="2627:3031" ph="..." />
+            <marker date="1520464107802" expanded="true" signature="2634:2951" ph="..." />
+            <marker date="1520464107802" expanded="true" signature="2958:3031" ph="..." />
+            <marker date="1520464107802" expanded="true" signature="2967:3031" ph="..." />
+            <marker date="1520464107802" expanded="true" signature="2978:3031" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/Parser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        <state relative-caret-position="543">
+          <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
           <folding>
-            <marker date="1520461424533" expanded="true" signature="17007:17059" ph="INSERT INTO pages... " />
-            <marker date="1520461424533" expanded="true" signature="17573:17686" ph="INSERT INTO elements... " />
-            <marker date="1520461424533" expanded="true" signature="18022:18099" ph="SELECT closi... pages" />
-            <marker date="1520461424533" expanded="true" signature="18139:18218" ph="SELECT closi... pages" />
-            <marker date="1520461424533" expanded="true" signature="18496:18545" ph="SELECT * FRO... elements" />
-            <marker date="1520461424533" expanded="true" signature="18585:18695" ph="SELECT * FRO... elements" />
-            <marker date="1520461424533" expanded="true" signature="18625:18651" ph="SELECT id FR... pages" />
-            <marker date="1520461424533" expanded="true" signature="18625:18694" ph="SELECT id FR... pages" />
-            <marker date="1520461424533" expanded="true" signature="19544:19658" ph="SELECT closi... pages" />
-            <marker date="1520461424533" expanded="true" signature="19964:20003" ph="SELECT * FRO... elements" />
-            <marker date="1520461424533" expanded="true" signature="19964:20011" ph="SELECT * FRO... elements" />
-            <marker date="1520461424533" expanded="true" signature="20855:20909" ph="SELECT * FRO... elements" />
-            <marker date="1520461424533" expanded="true" signature="20855:20934" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="16693:16745" ph="INSERT INTO pages... " />
+            <marker date="1520464387840" expanded="true" signature="17259:17372" ph="INSERT INTO elements... " />
+            <marker date="1520464387840" expanded="true" signature="17708:17785" ph="SELECT closi... pages" />
+            <marker date="1520464387840" expanded="true" signature="17825:17904" ph="SELECT closi... pages" />
+            <marker date="1520464387840" expanded="true" signature="18182:18231" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="18271:18381" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="18311:18337" ph="SELECT id FR... pages" />
+            <marker date="1520464387840" expanded="true" signature="18311:18380" ph="SELECT id FR... pages" />
+            <marker date="1520464387840" expanded="true" signature="19230:19344" ph="SELECT closi... pages" />
+            <marker date="1520464387840" expanded="true" signature="19650:19689" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="19650:19697" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="20541:20595" ph="SELECT * FRO... elements" />
+            <marker date="1520464387840" expanded="true" signature="20541:20620" ph="SELECT * FRO... elements" />
           </folding>
         </state>
       </provider>

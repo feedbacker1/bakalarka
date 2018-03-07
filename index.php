@@ -139,9 +139,11 @@ if ( isset($_POST['server']) ) {
 include 'cms/Parser.php';
 
 
-$parser = new Parser("http://www.tooplate.com/templates/2087_kalay","index.html");
+$parser = new Parser("http://www.free-css.com/assets/files/free-css-templates/preview/page224/bow/","index.html");
 $parser->downloadContent();
 $parser->toDB();
+
+var_dump($parser->parsedAnchors);
 
 
 ?>
