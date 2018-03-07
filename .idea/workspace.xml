@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cefd7aa0-61b7-4314-88fb-6c06316e010f" name="Default" comment="a">
+    <list default="true" id="cefd7aa0-61b7-4314-88fb-6c06316e010f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/Parser.php" afterPath="$PROJECT_DIR$/cms/Parser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="Parser.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cms/Parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="209" column="0" lean-forward="true" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
               <folding>
                 <marker date="1520464387840" expanded="true" signature="16693:16745" ph="INSERT INTO pages... " />
                 <marker date="1520464387840" expanded="true" signature="17259:17372" ph="INSERT INTO elements... " />
@@ -286,6 +284,11 @@
               <item name="bak" type="b2602c69:ProjectViewProjectNode" />
               <item name="bak" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="bak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bak" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cms" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -359,7 +362,7 @@
       <workItem from="1516534902310" duration="2111000" />
       <workItem from="1516608893686" duration="35000" />
       <workItem from="1520448035322" duration="99000" />
-      <workItem from="1520448656167" duration="10461000" />
+      <workItem from="1520448656167" duration="11145000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1506878796746</created>
@@ -487,11 +490,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520462731049</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="a">
+      <created>1520464470076</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1520464470076</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198045000" />
+    <option name="totallyTimeSpent" value="198729000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -812,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/Parser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        <state relative-caret-position="152">
+          <caret line="209" column="0" lean-forward="true" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
           <folding>
             <marker date="1520464387840" expanded="true" signature="16693:16745" ph="INSERT INTO pages... " />
             <marker date="1520464387840" expanded="true" signature="17259:17372" ph="INSERT INTO elements... " />
