@@ -18,24 +18,26 @@ class Parser
     public $conn;
     public $pageName;
     public $scripts = [];
-    public $scriptcounter = 0;
+    public $scriptCounter = 0;
+    public $url = "";
+    public $parsedAnchors = [];
 
-    /**
-     * Parser constructor.
-     * @param mixed $html
-     */
-    public function __construct($html = false)
+
+    public function __construct($html = false, $pageName = false, $parsedAnchors = false, $filename = false)
     {
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "cms";
+        include 'db.php';
+
+        $servername = $config['server'];
+        $username = $config['user'];
+        $password = $config['pass'];
+        $dbname = $config['table'];
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+            //die("Connection failed: " . $this->conn->connect_error);
+            die();
         }
 
         if ($html) {
@@ -44,15 +46,36 @@ class Parser
                 $this->pageName = $html;
             }
 
+            if ($pageName) {
+                $this->pageName = $pageName;
+            }
+
+            if (strlen($this->pageName) == 0) {
+                $this->pageName = "index.html";
+            }
+
+            if ($parsedAnchors) {
+                $this->parsedAnchors = $parsedAnchors;
+            }
+
             $dom = new Dom;
             $dom->load($html);
 
             $this->handleScripts($dom->getRaw());
 
-            $this->parse($dom->root);
+            if (strpos($html, "http") !== false) {
+                if ($filename) {
+                    $this->url = str_replace($filename, '', $this->url);
+                } else {
+                    $this->url = $html;
+                }
+                $this->parse($dom->root, true);
+            } else {
+                $this->parse($dom->root);
+            }
 
             if (strpos($html, "http") !== false) {
-                file_put_contents("index.html", $this->toHTML(false, true));
+                file_put_contents($this->pageName, $this->toHTML(false, true));
             }
         }
     }
@@ -89,6 +112,20 @@ class Parser
         }
 
         return false;
+    }
+
+    public function getNextPageNum($string){
+
+        $start = "index";
+        $end = ".html";
+
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) return '';
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+
+        return intval(substr($string, $ini, $len)) + 1;
     }
 
     public function handleScripts($html) {
@@ -146,7 +183,7 @@ class Parser
         }
     }
 
-    public function parse($node) {
+    public function parse($node, $handleAnchors = false) {
 
         if (in_array('data-misocms-no-parse', array_keys($node->getTag()->getAttributes()))) {
             return;
@@ -156,15 +193,65 @@ class Parser
             return;
         }
 
+
         $element = new Element();
         $element->setId($node->id());
         $element->setTag($node->getTag()->name());
         $attrs = [];
+
         foreach ($node->getTag()->getAttributes() as $attr => $value) {
             if ($attr != "data-misocms-id") {
                 $attrs[$attr] = $value['value'];
             }
         }
+
+
+
+
+
+        //Dava tie iste nazvy suborom
+        $href = $node->getTag()->getAttributes()['href']['value'];
+
+        if ($handleAnchors && $node->getTag()->name() == "a" && isset($href) && $href != "#") {
+
+            if (!key_exists($href, $this->parsedAnchors)) {
+
+                if ($this->pageName == "index.html") {
+                    $newPageName = strpos($href,".html") === false ? $href.".html" : $href;
+                    $this->parsedAnchors['index.html'] = 'index.html';
+                } else {
+                    $newPageName = strpos($href,".html") === false ? $href.".html" : $href;
+                    $this->parsedAnchors[$href] = $newPageName;
+                }
+
+                var_dump( $this->parsedAnchors );
+
+                if (strpos($href, "//") === false) {
+
+                    $parser = new Parser($this->url . "/" . $href, $newPageName, $this->parsedAnchors, $href);
+
+                    $parser->downloadContent();
+                    $parser->toDB();
+                }
+
+                $attrs['href'] = $newPageName;
+
+            } else {
+
+                $attrs['href'] = $this->parsedAnchors[$href];
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
 
         $element->setAttr($attrs);
 
@@ -202,7 +289,7 @@ class Parser
             $element = new Element();
             $element->setId("aaa");
             $element->setTag("text");
-            $element->setText($this->scripts[$this->scriptcounter++]."\n</script>");
+            $element->setText($this->scripts[$this->scriptCounter++]."\n</script>");
             $element->setParent($node->id());
             $this->addElement($element);
 
@@ -211,7 +298,7 @@ class Parser
 
         if (method_exists($node, 'getChildren')) {
             foreach ($node->getChildren() as $child) {
-                $this->parse($child);
+                $this->parse($child, $handleAnchors);
             }
         }
 
@@ -283,7 +370,7 @@ class Parser
 
     }
 
-    public function downloadContent($url) {
+    public function downloadContent() {
 
         foreach ($this->getElements() as $element) {
 
@@ -295,12 +382,18 @@ class Parser
                 }
 
                 if (strpos($element->getAttr()['src'], "//") === false) {
-                    $content = file_get_contents($url."/".$element->getAttr()['src']);
+                    $content = file_get_contents($this->url."/".$element->getAttr()['src']);
                 } else {
                     $content = file_get_contents($element->getAttr()['src']);
                 }
 
-                file_put_contents(__DIR__ ."\..\js/".basename($element->getAttr()['src']), $content);
+                if (strpos($element->getAttr()['src'], "?") !== false) {
+                    $filename = basename(strtok($element->getAttr()['src'], '?'));
+                } else {
+                    $filename = basename($element->getAttr()['src']);
+                }
+
+                file_put_contents(__DIR__ ."\..\js/".$filename, $content);
 
                 $attr = $element->getAttr();
                 $attr['src'] = "js/".basename($element->getAttr()['src']);
@@ -314,11 +407,17 @@ class Parser
                 }
 
                 if (strpos($element->getAttr()['href'], "//") === false) {
-                    $content = file_get_contents($url."/".$element->getAttr()['href']);
+                    $content = file_get_contents($this->url."/".$element->getAttr()['href']);
 
-                    $content = $this->downloadImagesInCss($content, $url."/".$element->getAttr()['href']);
+                    $content = $this->downloadImagesInCss($content, $this->url."/".$element->getAttr()['href']);
 
-                    file_put_contents(__DIR__ ."\..\css/".basename($element->getAttr()['href']), $content);
+                    if (strpos($element->getAttr()['href'], "?") !== false) {
+                        $filename = basename(strtok($element->getAttr()['href'], '?'));
+                    } else {
+                        $filename = basename($element->getAttr()['href']);
+                    }
+
+                    file_put_contents(__DIR__ ."\..\css/".$filename, $content);
 
                     $attr = $element->getAttr();
                     $attr['href'] = "css/".basename($element->getAttr()['href']);
@@ -334,7 +433,7 @@ class Parser
                 }
 
                 if (strpos($element->getAttr()['src'], "//") === false) {
-                    $content = file_get_contents($url."/".$element->getAttr()['src']);
+                    $content = file_get_contents($this->url."/".$element->getAttr()['src']);
                 } else {
                     $content = file_get_contents($element->getAttr()['src']);
                 }
