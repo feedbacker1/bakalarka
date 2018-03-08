@@ -8,7 +8,7 @@ use PHPHtmlParser\Dom;
 ini_set('xdebug.var_display_max_depth', 100);
 ini_set('xdebug.var_display_max_children', 100);
 ini_set('xdebug.var_display_max_data', 100);
-ini_set('max_execution_time', 180);
+ini_set('max_execution_time', 1800);
 
 class Parser
 {
@@ -26,10 +26,12 @@ class Parser
     public function __construct($html = false, $pageName = false, $parsedAnchors = false, $filename = false)
     {
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "cms";
+        include "db.php";
+
+        $servername = $config['server'];
+        $username = $config['user'];
+        $password = $config['pass'];
+        $dbname = $config['table'];
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -216,7 +218,8 @@ class Parser
 
             if (!key_exists($href, $this->parsedAnchors)) {
 
-                $this->parsedAnchors[$href] = $href;
+                $this->parsedAnchors[$href] = $href.".html";
+                $this->parsedAnchors['url'] = $this->url;
 
                 //if (strpos($href, "//") === false) {
 
@@ -229,7 +232,7 @@ class Parser
 
                 //}
 
-                $attrs['href'] = $href;
+                $attrs['href'] = $href.".html";
 
             } else {
 
@@ -388,7 +391,9 @@ class Parser
                     $filename = basename($element->getAttr()['src']);
                 }
 
-                file_put_contents(__DIR__ ."\..\js/".$filename, $content);
+                if (!file_exists(__DIR__ ."\..\js/".$filename)) {
+                    file_put_contents(__DIR__ . "\..\js/" . $filename, $content);
+                }
 
                 $attr = $element->getAttr();
                 $attr['src'] = "js/".basename($element->getAttr()['src']);
@@ -412,7 +417,9 @@ class Parser
                         $filename = basename($element->getAttr()['href']);
                     }
 
-                    file_put_contents(__DIR__ ."\..\css/".$filename, $content);
+                    if (!file_exists(__DIR__ ."\..\css/".$filename)) {
+                        file_put_contents(__DIR__ ."\..\css/".$filename, $content);
+                    }
 
                     $attr = $element->getAttr();
                     $attr['href'] = "css/".basename($element->getAttr()['href']);
@@ -433,7 +440,9 @@ class Parser
                     $content = file_get_contents($element->getAttr()['src']);
                 }
 
-                file_put_contents(__DIR__ ."\..\images/".basename($element->getAttr()['src']), $content);
+                if (!file_exists(__DIR__ ."\..\images/".basename($element->getAttr()['src']))) {
+                    file_put_contents(__DIR__ ."\..\images/".basename($element->getAttr()['src']), $content);
+                }
 
                 $attr = $element->getAttr();
                 $attr['src'] = "images/".basename($element->getAttr()['src']);

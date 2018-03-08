@@ -5,13 +5,15 @@ class Cms
 
     public $conn;
 
-    public function __construct($html = false)
+    public function __construct()
     {
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "cms";
+        include "db.php";
+
+        $servername = $config['server'];
+        $username = $config['user'];
+        $password = $config['pass'];
+        $dbname = $config['table'];
 
         $this->conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -73,6 +75,45 @@ class Cms
             echo "false";
         }
 
+    }
+
+    public function getPages() {
+
+        $data = [];
+        $sql = "SELECT * FROM pages GROUP BY name ORDER BY id DESC";
+        $result = $this->conn->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+
+            return $data;
+
+        } else {
+            return [];
+        }
+
+    }
+
+    public function clearDB() {
+        $res = $this->conn->query("SET foreign_key_checks = 0");
+        if (!$res) {
+            die("DB clearing ERROR > " . $this->conn->error);
+        }
+        $res = $this->conn->query("TRUNCATE TABLE `elements`");
+        if (!$res) {
+            die("DB clearing ERROR > " . $this->conn->error);
+        }
+        $res = $this->conn->query("TRUNCATE TABLE `pages`");
+        if (!$res) {
+            die("DB clearing ERROR > " . $this->conn->error);
+        }
+        $res = $this->conn->query("TRUNCATE TABLE `blocks`");
+        if (!$res) {
+            die("DB clearing ERROR > " . $this->conn->error);
+        }
     }
 
 }
