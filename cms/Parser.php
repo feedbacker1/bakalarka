@@ -184,7 +184,7 @@ class Parser
 
     public function parse($node, $handleAnchors = false) {
 
-        if (in_array('data-misocms-no-parse', array_keys($node->getTag()->getAttributes()))) {
+        if (in_array('data-bakcms-no-parse', array_keys($node->getTag()->getAttributes()))) {
             return;
         }
 
@@ -199,7 +199,7 @@ class Parser
         $attrs = [];
 
         foreach ($node->getTag()->getAttributes() as $attr => $value) {
-            if ($attr != "data-misocms-id") {
+            if ($attr != "data-bakcms-id") {
                 $attrs[$attr] = $value['value'];
             }
         }
@@ -475,7 +475,7 @@ class Parser
             if ($element->getAttr()) {
                 foreach ($element->getAttr() as $attr => $value) {
                     if ($generateFile) {
-                        if ($attr != "data-misocms-id") {
+                        if ($attr != "data-bakcms-id") {
                             $str .= " " . $attr . "=\"" . $value . "\"";
                         }
                     } else {
@@ -486,7 +486,7 @@ class Parser
 
             if ($withLiveEdit) {
                 if (!in_array($element->getTag(), $notLiveEditTags)) {
-                    $str .= " data-misocms-id=\"" . $element->getId() . "\"";
+                    $str .= " data-bakcms-id=\"" . $element->getId() . "\"";
                 }
             }
 
@@ -510,7 +510,7 @@ class Parser
             // handle dynamicly created elements
             if ($element->getTag() == "body") {
                 if (!$generateFile) {
-                    $str .= "<script data-misocms-no-parse>document.body.addEventListener('DOMNodeInserted', function(e) { if(e.target.nodeType == 1) { e.target.setAttribute('data-misocms-no-parse', '') }}) </script>";
+                    $str .= "<script data-bakcms-no-parse>document.body.addEventListener('DOMNodeInserted', function(e) { if(e.target.nodeType == 1) { e.target.setAttribute('data-bakcms-no-parse', '') }}) </script>";
                 }
             }
 
@@ -524,7 +524,7 @@ class Parser
 
         if ($withLiveEdit) {
 
-            $this->htmlResult .= "<script data-misocms-no-parse src=\"cms/liveedit.js\"></script>";
+            $this->htmlResult .= "<script data-bakcms-no-parse src=\"cms/liveedit.js\"></script>";
 
             return "<!DOCTYPE html>\n<html>\n".$this->htmlResult."\n</html>";
 

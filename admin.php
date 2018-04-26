@@ -156,7 +156,7 @@ if ( isset($_POST['server']) ) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MisoCMS inštalátor</title>
+    <title>BakCMS inštalátor</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -202,7 +202,7 @@ if ( isset($_POST['server']) ) {
     <div class="container">
         <div class="row">
             <div id="container" class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                <h1>MisoCMS inštalátor</h1>
+                <h1>BakCMS inštalátor</h1>
                 <h4>1. krok - spojenie s DB</h4>
                 <?= $msg ?>
                 <form action="" method="post">
@@ -243,7 +243,7 @@ if ( isset($_POST['server']) ) {
     <div class="container">
         <div class="row">
             <div id="container" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-                <h1>MisoCMS Admin</h1>
+                <h1>BakCMS Admin</h1>
                 <h4>Stránka bola úspešne vložená.</h4>
                 <h5>Našli sa v nej ďalšie stránky, chcete ich tiež pridať?</h5>
                 <form action="" method="post">
@@ -283,7 +283,7 @@ if ( isset($_POST['server']) ) {
     <div class="container">
         <div class="row">
             <div id="container" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-                <h1>MisoCMS inštalátor</h1>
+                <h1>BakCMS inštalátor</h1>
                 <h4>2. krok - upload stránky</h4>
                 <div class="row">
                     <div class="col-xs-6">
@@ -349,7 +349,7 @@ if ( isset($_POST['server']) ) {
     <div class="container">
         <div class="row">
             <div id="container" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-                <h1>MisoCMS Admin</h1>
+                <h1>BakCMS Admin</h1>
                 <h4>Zoznam stránok:</h4>
                 <table class="table table-bordered table-striped">
                     <thead>
