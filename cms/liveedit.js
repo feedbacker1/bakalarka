@@ -74,7 +74,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 
 $("body").append("<style>\n" +
-    "#misocms-panel {z-index: 13501;position:fixed; top:50px; left:50px; text-align:center; color: black; background: rgba(220,220,220,0.7); border:2px solid rgb(160,160,160); width: 150px; height: 150px; padding: 0.5em; -webkit-transition: background 0.3s; transition: background 0.3s; }\n" +
+    "#misocms-panel {z-index: 13501;position:fixed; top:50px; left:50px; text-align:center; color: black; background: rgba(220,220,220,0.7); border:2px solid rgb(160,160,160); width: 150px; height: 180px; padding: 0.5em; -webkit-transition: background 0.3s; transition: background 0.3s; }\n" +
     "#misocms-panel:hover, #misocms-content:hover, #misocms-blocks:hover, #misocms-content-add-block:hover {background: rgba(220,220,220,1); }\n" +
     "div.button-fa {display: inline-block; border-radius: 4px; background-color: whitesmoke; border: 1px solid lightgrey; width: 40px; height: 40px; font-size: 26px; margin: 2px; padding-top: 6px;}\n" +
     "div.picker-enabled, div.btn-active {background-color: grey;}\n" +
@@ -101,6 +101,7 @@ $("body").append("<div data-misocms-no-parse id=\"misocms-panel\" class=\"dragga
 "<div onclick='add_element(this)' class='button-fa'><i class='button-fa fa fa-plus'></i></div>\n" +
     "<br /><br />" +
 "<button onclick='save_file()' style='width: 100%;' class='btn btn-success btn-sm'><i class='fa fa-save'></i> Uložiť</button><br />\n" +
+"<a href='admin'><button style='width: 100%;margin-top: 6px' class='btn btn-default btn-xs'><i class='fa fa-dashboard'></i> Administrácia</button></a><br />\n" +
 "</div>");
 
 

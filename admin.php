@@ -113,6 +113,40 @@ if ( isset($_POST['server']) ) {
     $parser->downloadContent();
     $parser->toDB();
 
+} else if($_FILES["zipfile"]["name"]) {
+
+    $filename = $_FILES["zipfile"]["name"];
+    $source = $_FILES["zipfile"]["tmp_name"];
+    $type = $_FILES["zipfile"]["type"];
+
+    $name = explode(".", $filename);
+    $accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');
+    foreach($accepted_types as $mime_type) {
+        if($mime_type == $type) {
+            $okay = true;
+            break;
+        }
+    }
+
+    $continue = strtolower($name[1]) == 'zip' ? true : false;
+    if(!$continue) {
+        die("Súbor nie je zip!");
+    }
+
+    $target_path = realpath(dirname(__FILE__))."/".$filename;
+    if(move_uploaded_file($source, $target_path)) {
+        $zip = new ZipArchive();
+        $x = $zip->open($target_path);
+        if ($x === true) {
+            $zip->extractTo(realpath(dirname(__FILE__)));
+            $zip->close();
+
+            unlink($target_path);
+        }
+    }
+
+    header("Location: ?parse");
+
 }
 
 ?>
@@ -191,6 +225,21 @@ if ( isset($_POST['server']) ) {
 
 <?php } else if ( isset($_POST['start2']) || isset($_POST['start2_anchors']) ) { ?>
 
+    <script>
+        function checkall() {
+            checkboxes = document.getElementsByName('anchors[]');
+            for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = true;
+            }
+        }
+        function uncheckall() {
+            checkboxes = document.getElementsByName('anchors[]');
+            for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = false;
+            }
+        }
+    </script>
+
     <div class="container">
         <div class="row">
             <div id="container" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
@@ -216,6 +265,8 @@ if ( isset($_POST['server']) ) {
                             }
                         } ?>
                     </table>
+                    <a href="#" onclick="checkall()">Označiť všetky</a>
+                    <a href="#" onclick="uncheckall()">Zrušiť označenia</a>
                     <button type="submit" class="btn btn-success">Pridať</button>
                 </form>
                 <br /><br /><br />
@@ -266,6 +317,14 @@ if ( isset($_POST['server']) ) {
                             </form>
                         <?php } else { ?>
                             <h5>Žiadne .html súbory nenájdené</h5>
+                            <br />
+                            <p>Môžete nahrať tému v .zip formáte:</p>
+                            <form method="post" action="admin.php" enctype="multipart/form-data">
+                                <div class="text-center">
+                                    <input type="file" name="zipfile"  accept='.zip' style="margin-left: -15px;"/>
+                                    <button type="submit" class="btn btn-primery">Nahrať!</button>
+                                </div>
+                            </form>
                         <?php } ?>
 
                     </div>
